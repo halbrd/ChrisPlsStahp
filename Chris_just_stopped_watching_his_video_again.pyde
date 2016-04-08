@@ -11,7 +11,7 @@ class BouncingText:
    def update(self):
        self.x += self.hVel
        self.y += self.yVel
-       if self.y > height: self.yVel = self.yVel * -0.9 
+       if self.y > height: self.yVel = self.yVel * -0.9
        self.yVel += self.gravity
        if self.x > width or self.x < -300 or self.y > width + 100:
            self.x = random.randint(0, width/2)
@@ -26,9 +26,12 @@ class BouncingText:
            self.y = 0
            self.yVel = random.randint(0, 2)
            
-               
+       r = random.randint(0, 255)
+       g = random.randint(0, 255)
+       b = random.randint(0, 255)
+       fill(r, g, b);
        rect(self.x, self.y - 300, 200, 300)
-       fill(0)
+       fill(255 - r, 255 - g, 255 - b)
        text("Chris just", self.x + 45, self.y - 220)
        text("stopped", self.x + 53, self.y - 195)
        text("watching", self.x + 50, self.y - 170)
@@ -39,7 +42,7 @@ class BouncingText:
 bText = BouncingText(100, 0, 5)
 
 def setup():
-    size(1920, 970)
+    size(1920, 960)
     background(0)
     textSize(24)
 
